@@ -16,6 +16,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void BotonIngNuevaMateria(View view){
         setContentView(R.layout.crear_materia);
-        Toast.makeText(this, "Se ingreso la nueva materia", Toast.LENGTH_SHORT).show();
+    }
+
+    public void BotonVolver(View view){
+        setContentView(R.layout.activity_main);
     }
 }

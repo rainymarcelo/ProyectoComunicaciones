@@ -7,14 +7,14 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/CantidadCreditos"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:ems="10"
         android:inputType="number"
         android:text="Cantidad de creditos"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumber2"
+        app:layout_constraintBottom_toTopOf="@+id/Evaluaciones"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
@@ -27,7 +27,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Nombre de la materia"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumber"
+        app:layout_constraintBottom_toTopOf="@+id/CantidadCreditos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,33 +35,35 @@
         app:layout_constraintVertical_bias="0.983" />
 
     <EditText
-        android:id="@+id/editTextNumber2"
+        android:id="@+id/Evaluaciones"
         android:layout_width="293dp"
         android:layout_height="46dp"
         android:layout_marginBottom="24dp"
         android:ems="10"
         android:inputType="number"
         android:text="Cantidad de actividades evaluativas"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/Guardar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/Guardar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
+        android:onClick="BotonGuardar"
         android:text="Guardar"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/Volver"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/Volver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="180dp"
+        android:onClick="BotonVolver"
         android:text="Volver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
