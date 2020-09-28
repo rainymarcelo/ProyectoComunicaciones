@@ -18,6 +18,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.crear_materia);
     }
 
+    public void BotonRevisarMaterias(View view){
+        setContentView(R.layout.materias);
+    }
+
+    public void BotonGuardarMateria(){
+
+    }
+
     public void BotonVolver(View view){
         setContentView(R.layout.activity_main);
     }

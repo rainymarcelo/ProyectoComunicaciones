@@ -6,17 +6,38 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Materia extends AppCompatActivity {
+public class Materia {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.crear_materia);
+    private String nombreMateria="";
+    private int creditos=0;
+    private int evaluaciones=0;
+
+    public Materia(String nombreMateria, int creditos) {
+        this.nombreMateria = nombreMateria;
+        this.creditos = creditos;
     }
 
-    public void BotonGuardar(View view){
-        Toast.makeText(this, "Se ingreso la nueva materia", Toast.LENGTH_SHORT).show();
+    public String getNombreMateria() {
+        return nombreMateria;
     }
 
+    public void setNombreMateria(String nombreMateria) {
+        this.nombreMateria = nombreMateria;
+    }
 
+    public int getCreditos() {
+        return creditos;
+    }
+
+    public void setCreditos(int creditos) {
+        this.creditos = creditos;
+    }
+
+    public int getEvaluaciones() {
+        return evaluaciones;
+    }
+
+    public void setEvaluaciones(int evaluaciones) {
+        this.evaluaciones = evaluaciones;
+    }
 }
