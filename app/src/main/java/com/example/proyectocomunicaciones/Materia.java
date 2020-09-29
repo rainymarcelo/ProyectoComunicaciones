@@ -10,11 +10,13 @@ public class Materia {
 
     private String nombreMateria="";
     private int creditos=0;
-    private int evaluaciones=0;
+    private double nota=0;
 
-    public Materia(String nombreMateria, int creditos) {
+    public Materia(String nombreMateria, int creditos, double nota) {
         this.nombreMateria = nombreMateria;
         this.creditos = creditos;
+        this.nota=nota;
+
     }
 
     public String getNombreMateria() {
@@ -33,11 +35,11 @@ public class Materia {
         this.creditos = creditos;
     }
 
-    public int getEvaluaciones() {
-        return evaluaciones;
+    public double getEvaluaciones() {
+        return nota;
     }
 
     public void setEvaluaciones(int evaluaciones) {
-        this.evaluaciones = evaluaciones;
+        this.nota = evaluaciones;
     }
 }
