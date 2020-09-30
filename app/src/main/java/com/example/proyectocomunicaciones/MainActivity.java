@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void BotonGuardarMateria(){
-
+        setContentView(R.layout.crear_materia);
     }
 
     public void BotonVolver(View view){
