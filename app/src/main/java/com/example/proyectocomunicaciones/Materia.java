@@ -13,7 +13,7 @@ public class Materia {
 
     private String nombreMateria="";
     private Integer creditos = 0;
-    private double nota=0;
+    private double nota = 0;
     private List<Notas> evaluaciones=new ArrayList<>();
 
 
@@ -53,5 +53,15 @@ public class Materia {
 
     public void setEvaluaciones(List<Notas> evaluaciones) {
         this.evaluaciones = evaluaciones;
+    }
+
+    public void addNota(Notas nota){this.evaluaciones.add(nota);}
+
+    public void notaActual(){
+        double sum = 0;
+        for (Notas nota: evaluaciones) {
+            sum += nota.getNota() * (nota.getPorcentaje()/100);
+        }
+        this.setNota(sum);
     }
 }

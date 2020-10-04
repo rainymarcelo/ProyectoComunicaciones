@@ -31,7 +31,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="BotonVolver"
+        android:onClick="BotonVolverMaterias"
         android:text="Volver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,25 +63,42 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <TextView
+        android:id="@+id/dfs3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Nota final:"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@+id/dfs" />
+
+    <TextView
+        android:id="@+id/notaFinalT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:text="Nota final:"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/dfs3"
+        app:layout_constraintTop_toBottomOf="@+id/creditos" />
+
+    <TextView
         android:id="@+id/dfs2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Agregar nota"
         android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@+id/dfs" />
+        app:layout_constraintTop_toBottomOf="@+id/dfs3" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/AgregarNota"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="181dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="502dp"
-        android:text="Subir nota"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="220dp"
+        android:onClick="AgregarNota"
+        android:text="Agregar nota"
         app:layout_constraintStart_toEndOf="@+id/notaT"
         app:layout_constraintTop_toTopOf="parent" />
 

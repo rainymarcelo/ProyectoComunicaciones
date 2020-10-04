@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="BotonIngNuevaMateria"
-        android:text="Ingresar nuea materia"
+        android:text="Ingresar nueva materia"
         app:layout_constraintBottom_toTopOf="@+id/RevisarMaterias"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

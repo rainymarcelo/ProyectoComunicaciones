@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Materia> listaMaterias=new ArrayList<Materia>();
     ArrayList<String> listaNombres = new ArrayList<String>();
     ArrayAdapter<String>  adaptador;
-
+    int posicion;
 
 
     @Override
@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 TextView creditos = (TextView) findViewById(R.id.creditos);
                 materia.setText(object.toString());
                 creditos.setText(listaMaterias.get(position).getCreditos().toString());
+                posicion = position;
             }
         });
     }
@@ -64,9 +65,49 @@ public class MainActivity extends AppCompatActivity {
         //adaptador.notifyDataSetChanged();
         nombreMateria.setText("");
         cantidadCreditos.setText("");
+        Toast.makeText(getBaseContext(), "La materia se ha guardado correctamente", Toast.LENGTH_SHORT).show();
+    }
+
+    public void AgregarNota(View view){
+        EditText nombreNota = (EditText) findViewById(R.id.nombreActividadT);
+        EditText notaNota = (EditText) findViewById(R.id.notaT);
+        EditText porcentajeNota = (EditText) findViewById(R.id.porcentajeT);
+        TextView notaFinal = (TextView) findViewById(R.id.notaFinalT);
+
+        Notas nota = new Notas(nombreNota.getText().toString(), Integer.parseInt(notaNota.getText().toString())
+                , Integer.parseInt(porcentajeNota.getText().toString()));
+        Materia materia = listaMaterias.get(posicion);
+        materia.addNota(nota);
+        materia.notaActual();
+        Toast.makeText(getBaseContext(), "La nota final es:" + materia.getNota(), Toast.LENGTH_SHORT).show();
+        Double notaF = materia.getNota();
+        notaFinal.setText(notaF.toString());
+
+
+
     }
 
     public void BotonVolver(View view){
         setContentView(R.layout.activity_main);
+    }
+
+    public void BotonVolverMaterias(View view){
+        setContentView(R.layout.materias);
+        adaptador = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, listaNombres);
+        ListView listaMateria = (ListView)findViewById(R.id.ListaMaterias);
+        listaMateria.setAdapter(adaptador);
+        listaMateria.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Object object = parent.getAdapter().getItem(position);
+                Toast.makeText(getBaseContext(), object.toString(), Toast.LENGTH_SHORT).show();
+                setContentView(R.layout.materias_info);
+                TextView materia = (TextView) findViewById(R.id.materia);
+                TextView creditos = (TextView) findViewById(R.id.creditos);
+                materia.setText(object.toString());
+                creditos.setText(listaMaterias.get(position).getCreditos().toString());
+                posicion = position;
+            }
+        });
     }
 }
