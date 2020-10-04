@@ -62,4 +62,59 @@
         app:layout_constraintEnd_toStartOf="@+id/creditos"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
+    <TextView
+        android:id="@+id/dfs2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Agregar nota"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@+id/dfs" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="181dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="502dp"
+        android:text="Subir nota"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/notaT"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/nombreActividadT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Nombre de la actividad"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/dfs2"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/notaT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Nota"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/nombreActividadT"
+        tools:layout_editor_absoluteX="-2dp" />
+
+    <EditText
+        android:id="@+id/porcentajeT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Porcentaje"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/notaT" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

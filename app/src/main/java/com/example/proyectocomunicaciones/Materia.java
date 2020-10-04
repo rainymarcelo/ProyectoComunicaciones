@@ -12,7 +12,7 @@ import java.util.List;
 public class Materia {
 
     private String nombreMateria="";
-    private int creditos=0;
+    private Integer creditos = 0;
     private double nota=0;
     private List<Notas> evaluaciones=new ArrayList<>();
 
@@ -31,7 +31,7 @@ public class Materia {
         this.nombreMateria = nombreMateria;
     }
 
-    public int getCreditos() {
+    public Integer getCreditos() {
         return creditos;
     }
 

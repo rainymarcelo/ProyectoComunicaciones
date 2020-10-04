@@ -15,9 +15,9 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity {
-    ArrayList<String> materias=new ArrayList<String>();
+    ArrayList<Materia> listaMaterias=new ArrayList<Materia>();
+    ArrayList<String> listaNombres = new ArrayList<String>();
     ArrayAdapter<String>  adaptador;
-    ArrayList<Integer> listaCreditos=new ArrayList<Integer>();
 
 
 
@@ -33,19 +33,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void BotonRevisarMaterias(View view){
         setContentView(R.layout.materias);
-        adaptador=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,materias);
-        ListView listaMaterias = (ListView)findViewById(R.id.ListaMaterias);
-        listaMaterias.setAdapter(adaptador);
-        listaMaterias.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        adaptador = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, listaNombres);
+        ListView listaMateria = (ListView)findViewById(R.id.ListaMaterias);
+        listaMateria.setAdapter(adaptador);
+        listaMateria.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Object object = parent.getAdapter().getItem(position);
                 Toast.makeText(getBaseContext(), object.toString(), Toast.LENGTH_SHORT).show();
                 setContentView(R.layout.materias_info);
                 TextView materia = (TextView) findViewById(R.id.materia);
-                materia.setText(object.toString());
                 TextView creditos = (TextView) findViewById(R.id.creditos);
-                creditos.setText(listaCreditos.get(position).toString());
+                materia.setText(object.toString());
+                creditos.setText(listaMaterias.get(position).getCreditos().toString());
             }
         });
     }
@@ -54,10 +54,13 @@ public class MainActivity extends AppCompatActivity {
     public void agregarMateria(View v) {
         EditText nombreMateria = (EditText) findViewById(R.id.NombreMateria);
         EditText cantidadCreditos = (EditText) findViewById(R.id.CantidadCreditos);
-        materias.add(nombreMateria.getText().toString());
         String texto = cantidadCreditos.getText().toString();
-        int num =Integer.parseInt(texto);
-        listaCreditos.add(num);
+        Integer num = Integer.parseInt(texto);
+
+        Materia materia = new  Materia(nombreMateria.getText().toString(), num, 0);
+        listaMaterias.add(materia);
+        listaNombres.add(materia.getNombreMateria());
+
         //adaptador.notifyDataSetChanged();
         nombreMateria.setText("");
         cantidadCreditos.setText("");
