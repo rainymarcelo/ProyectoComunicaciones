@@ -75,4 +75,11 @@ public class Materia {
         }
         return sum;
     }
+
+    public Double notaNecesaria(){
+        Integer a = porcentajeActual();
+        double b = Double.parseDouble(a.toString());
+        double c = (3 - this.nota)*((100 - b)/100);
+        return c;
+    }
 }
