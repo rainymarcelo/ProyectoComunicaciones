@@ -60,8 +60,19 @@ public class Materia {
     public void notaActual(){
         double sum = 0;
         for (Notas nota: evaluaciones) {
-            sum += nota.getNota() * (nota.getPorcentaje()/100);
+            Integer percent = nota.getPorcentaje();
+            double percentaje = Double.parseDouble(percent.toString());
+            sum += nota.getNota() * (percentaje/100);
         }
         this.setNota(sum);
+    }
+
+    public int porcentajeActual(){
+        int sum = 0;
+        for (Notas nota: evaluaciones) {
+            Integer percent = nota.getPorcentaje();
+            sum += Integer.parseInt(percent.toString());
+        }
+        return sum;
     }
 }

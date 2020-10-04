@@ -58,10 +58,9 @@ public class MainActivity extends AppCompatActivity {
         String texto = cantidadCreditos.getText().toString();
         Integer num = Integer.parseInt(texto);
 
-        Materia materia = new  Materia(nombreMateria.getText().toString(), num, 0);
+        Materia materia = new Materia(nombreMateria.getText().toString(), num, 0);
         listaMaterias.add(materia);
         listaNombres.add(materia.getNombreMateria());
-
         //adaptador.notifyDataSetChanged();
         nombreMateria.setText("");
         cantidadCreditos.setText("");
@@ -69,22 +68,38 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void AgregarNota(View view){
+        Materia materia = listaMaterias.get(posicion);
         EditText nombreNota = (EditText) findViewById(R.id.nombreActividadT);
         EditText notaNota = (EditText) findViewById(R.id.notaT);
+        TextView notaNecesaria = (TextView) findViewById(R.id.notaNecesariaT);
+        TextView porcentaje = (TextView) findViewById(R.id.porcentajeFinalT);
         EditText porcentajeNota = (EditText) findViewById(R.id.porcentajeT);
-        TextView notaFinal = (TextView) findViewById(R.id.notaFinalT);
 
-        Notas nota = new Notas(nombreNota.getText().toString(), Integer.parseInt(notaNota.getText().toString())
-                , Integer.parseInt(porcentajeNota.getText().toString()));
-        Materia materia = listaMaterias.get(posicion);
-        materia.addNota(nota);
-        materia.notaActual();
-        Toast.makeText(getBaseContext(), "La nota final es:" + materia.getNota(), Toast.LENGTH_SHORT).show();
-        Double notaF = materia.getNota();
-        notaFinal.setText(notaF.toString());
+        Integer percent = materia.porcentajeActual();
 
+        if(Integer.parseInt(porcentajeNota.getText().toString()) > 100 || Integer.parseInt(porcentajeNota.getText().toString()) < 1){
+            Toast.makeText(getBaseContext(), "El porcentaje debe estar entre 1% y 100%", Toast.LENGTH_SHORT).show();
+        }else if(Integer.parseInt(notaNota.getText().toString()) > 5 || Integer.parseInt(notaNota.getText().toString()) < 0) {
+            Toast.makeText(getBaseContext(), "La nota debe estar entre 0 y 5", Toast.LENGTH_SHORT).show();
+        }else if(100 - percent < Integer.parseInt(porcentajeNota.getText().toString())){
+            Toast.makeText(getBaseContext(), "El porcentaje excede el 100%", Toast.LENGTH_SHORT).show();
+        }else{
+            TextView notaFinal = (TextView) findViewById(R.id.notaFinalT);
 
+            Notas nota = new Notas(nombreNota.getText().toString(), Integer.parseInt(notaNota.getText().toString())
+                    , Integer.parseInt(porcentajeNota.getText().toString()));
+            materia.addNota(nota);
+            materia.notaActual();
+            Double notaF = materia.getNota();
+            notaFinal.setText(notaF.toString());
 
+            porcentaje.setText(percent.toString() + "%");
+            Toast.makeText(getBaseContext(), "La materia se ha guardado correctamente" + percent, Toast.LENGTH_SHORT).show();
+
+            nombreNota.setText("");
+            notaNota.setText("");
+            porcentajeNota.setText("");
+        }
     }
 
     public void BotonVolver(View view){

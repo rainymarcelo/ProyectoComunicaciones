@@ -67,9 +67,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Nota final:"
+        android:text="Nota Acumulada:"
         android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@+id/dfs" />
+
+    <TextView
+        android:id="@+id/dfs5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Nota necesaria:"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@+id/dfs3"
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/notaFinalT"
@@ -77,10 +87,32 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="10dp"
-        android:text="Nota final:"
+        android:text="0.0"
         android:textSize="24sp"
         app:layout_constraintStart_toEndOf="@+id/dfs3"
         app:layout_constraintTop_toBottomOf="@+id/creditos" />
+
+    <TextView
+        android:id="@+id/porcentajeFinalT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="0%"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/notaFinalT"
+        app:layout_constraintTop_toBottomOf="@+id/creditos" />
+
+    <TextView
+        android:id="@+id/notaNecesariaT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:text="0.0"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/dfs5"
+        app:layout_constraintTop_toBottomOf="@+id/notaFinalT" />
 
     <TextView
         android:id="@+id/dfs2"
@@ -89,14 +121,14 @@
         android:layout_marginTop="10dp"
         android:text="Agregar nota"
         android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@+id/dfs3" />
+        app:layout_constraintTop_toBottomOf="@+id/dfs5" />
 
     <Button
         android:id="@+id/AgregarNota"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="260dp"
         android:onClick="AgregarNota"
         android:text="Agregar nota"
         app:layout_constraintStart_toEndOf="@+id/notaT"
@@ -120,9 +152,9 @@
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Nota"
-        android:inputType="textPersonName"
+        android:inputType="number"
         app:layout_constraintTop_toBottomOf="@+id/nombreActividadT"
-        tools:layout_editor_absoluteX="-2dp" />
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
         android:id="@+id/porcentajeT"
@@ -131,7 +163,8 @@
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Porcentaje"
-        android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/notaT" />
+        android:inputType="number"
+        app:layout_constraintTop_toBottomOf="@+id/notaT"
+        tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
