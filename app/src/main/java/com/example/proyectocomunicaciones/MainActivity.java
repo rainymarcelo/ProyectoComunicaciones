@@ -27,18 +27,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void BotonIngNuevaMateria(View view){
+    public void BotonIngNuevaMateria(View view){//cambia layout  la de crear materia
         setContentView(R.layout.crear_materia);
     }
 
-    public void BotonRevisarMaterias(View view){
+    public void BotonRevisarMaterias(View view){//selecciona la materia para mostrar la info de esta
         setContentView(R.layout.materias);
         adaptador = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, listaNombres);
         ListView listaMateria = (ListView)findViewById(R.id.ListaMaterias);
         listaMateria.setAdapter(adaptador);
         listaMateria.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {//revisa que materia selecciono el usuario
                 Object object = parent.getAdapter().getItem(position);
                 Toast.makeText(getBaseContext(), object.toString(), Toast.LENGTH_SHORT).show();
                 setContentView(R.layout.materias_info);
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void agregarMateria(View v) {
+    public void agregarMateria(View v) {// boton para guardar la nueva materia
         EditText nombreMateria = (EditText) findViewById(R.id.NombreMateria);
         EditText cantidadCreditos = (EditText) findViewById(R.id.CantidadCreditos);
         String texto = cantidadCreditos.getText().toString();
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getBaseContext(), "La materia se ha guardado correctamente", Toast.LENGTH_SHORT).show();
     }
 
-    public void AgregarNota(View view){
+    public void AgregarNota(View view){// boton agreagar nota
         Materia materia = listaMaterias.get(posicion);
         EditText nombreNota = (EditText) findViewById(R.id.nombreActividadT);
         EditText notaNota = (EditText) findViewById(R.id.notaT);
@@ -109,11 +109,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void BotonVolver(View view){
+    public void BotonVolver(View view){// boton volver al inicio
         setContentView(R.layout.activity_main);
     }
 
-    public void BotonVolverMaterias(View view){
+    public void BotonVolverMaterias(View view){// boton volver a seleccionar materia
         setContentView(R.layout.materias);
         adaptador = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, listaNombres);
         ListView listaMateria = (ListView)findViewById(R.id.ListaMaterias);
@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void verEvaluaciones(View view){
+    public void verEvaluaciones(View view){// boton mostrar notas de una materia
         Materia materia=listaMaterias.get(posicion);
         adaptador = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, materia.lista());
         ListView listaMateria = (ListView)findViewById(R.id.actividades);
