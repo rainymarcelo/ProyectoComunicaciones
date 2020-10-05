@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
 
             Notas nota = new Notas(nombreNota.getText().toString(), Integer.parseInt(notaNota.getText().toString())
                     , Integer.parseInt(porcentajeNota.getText().toString()));
+
             materia.addNota(nota);
             materia.notaActual();
             Double notaF = materia.getNota();
@@ -96,9 +97,11 @@ public class MainActivity extends AppCompatActivity {
 
             notaNecesaria.setText(materia.notaNecesaria().toString());
 
+
             nombreNota.setText("");
             notaNota.setText("");
             porcentajeNota.setText("");
+            verEvaluaciones(materia);
         }
     }
 
@@ -124,5 +127,11 @@ public class MainActivity extends AppCompatActivity {
                 posicion = position;
             }
         });
+    }
+
+    private void verEvaluaciones(Materia materia){
+        adaptador = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, materia.lista());
+        ListView listaMateria = (ListView)findViewById(R.id.actividades);
+        listaMateria.setAdapter(adaptador);
     }
 }

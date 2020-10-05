@@ -82,4 +82,17 @@ public class Materia {
         double c = (3 - this.nota)*((100 - b)/100);
         return c;
     }
+
+    public ArrayList<String> lista(){
+        ArrayList<String> a = new ArrayList<String>();
+
+        for(Notas notas: evaluaciones){
+            Double c = notas.getNota();
+            Integer d = notas.getPorcentaje();
+            String b = "";
+            b = notas.getNombreActividad() + "  " + c.toString() + "  " + d.toString() + "%";
+            a.add(b);
+        }
+        return a;
+    }
 }
