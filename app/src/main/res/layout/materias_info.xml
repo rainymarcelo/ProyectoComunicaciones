@@ -125,8 +125,8 @@
         android:id="@+id/AgregarNota"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="208dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="180dp"
         android:onClick="AgregarNota"
         android:text="Agregar nota"
         app:layout_constraintStart_toEndOf="@+id/notaT"
@@ -141,17 +141,6 @@
         android:hint="Nombre de la actividad"
         android:inputType="textPersonName"
         app:layout_constraintTop_toBottomOf="@+id/dfs2"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <EditText
-        android:id="@+id/notaT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="Nota"
-        android:inputType="number"
-        app:layout_constraintTop_toBottomOf="@+id/nombreActividadT"
         tools:layout_editor_absoluteX="0dp" />
 
     <EditText
@@ -177,11 +166,22 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="55dp"
         android:layout_marginTop="64dp"
         android:onClick="verEvaluaciones"
         android:text="Mostrar notas"
-        app:layout_constraintStart_toEndOf="@+id/porcentajeT"
+        app:layout_constraintStart_toEndOf="@+id/notaT"
         app:layout_constraintTop_toBottomOf="@+id/AgregarNota" />
+
+    <EditText
+        android:id="@+id/notaT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Nota"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/nombreActividadT"
+        tools:layout_editor_absoluteX="-1dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
