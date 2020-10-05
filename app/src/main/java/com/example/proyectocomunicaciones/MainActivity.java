@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
                 materiaT.setText(object.toString());
                 creditosT.setText(listaMaterias.get(position).getCreditos().toString());
                 posicion = position;
-                Materia materia = listaMaterias.get(posicion);
             }
         });
     }
@@ -94,8 +93,6 @@ public class MainActivity extends AppCompatActivity {
             notaFinal.setText(notaF.toString());
 
             Integer percent = materia.porcentajeActual();
-
-
             porcentaje.setText(percent.toString() + "%");
 
             Double ntanes = round(materia.notaNecesaria(), 2);
@@ -141,6 +138,18 @@ public class MainActivity extends AppCompatActivity {
         adaptador = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, materia.lista());
         ListView listaMateria = (ListView)findViewById(R.id.actividades);
         listaMateria.setAdapter(adaptador);
+
+        TextView notaFinal = (TextView) findViewById(R.id.notaFinalT);
+        Double notaF = round(materia.getNota(), 2);
+        notaFinal.setText(notaF.toString());
+
+        TextView porcentaje = (TextView) findViewById(R.id.porcentajeFinalT);
+        Integer percent = materia.porcentajeActual();
+        porcentaje.setText(percent.toString() + "%");
+
+        TextView notaNecesaria = (TextView) findViewById(R.id.notaNecesariaT);
+        Double ntanes = round(materia.notaNecesaria(), 2);
+        notaNecesaria.setText(ntanes.toString());
     }
 
     public static double round(double value, int places) {
