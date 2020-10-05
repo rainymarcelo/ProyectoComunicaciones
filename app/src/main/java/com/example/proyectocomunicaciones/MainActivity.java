@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Materia> listaMaterias=new ArrayList<Materia>();
     ArrayList<String> listaNombres = new ArrayList<String>();
     ArrayAdapter<String>  adaptador;
-    int posicion;
+    Integer posicion;
 
 
     @Override
@@ -101,7 +101,10 @@ public class MainActivity extends AppCompatActivity {
             nombreNota.setText("");
             notaNota.setText("");
             porcentajeNota.setText("");
-            verEvaluaciones(materia);
+
+            adaptador = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, materia.lista());
+            ListView listaMateria = (ListView)findViewById(R.id.actividades);
+            listaMateria.setAdapter(adaptador);
         }
     }
 
@@ -129,9 +132,12 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void verEvaluaciones(Materia materia){
+    public void verEvaluaciones(View view){
+        Materia materia=listaMaterias.get(posicion);
         adaptador = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, materia.lista());
         ListView listaMateria = (ListView)findViewById(R.id.actividades);
         listaMateria.setAdapter(adaptador);
     }
+
+
 }
